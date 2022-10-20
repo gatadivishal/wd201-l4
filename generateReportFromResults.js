@@ -2,7 +2,8 @@ let fs = require("fs");
 
 let generateFeedback = (passed, results) => {
   const assertionResults = results["assertionResults"]
-    .map((item) => {
+    .map((item) => 
+    {
       let status = item["status"];
       let title = item["title"];
       let statusSymbol = status == "passed" ? "✓" : "✗";
@@ -27,7 +28,8 @@ const readFile = async (filePath) => {
   try {
     const data = await fs.promises.readFile(filePath, "utf8");
     return data;
-  } catch (err) {
+  } catch (err) 
+  {
     console.log("File not found | Grading Skipped");
   }
 };

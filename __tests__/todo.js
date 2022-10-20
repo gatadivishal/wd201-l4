@@ -1,7 +1,7 @@
 // __tests__/todo.js
 let todoList = require("../todo");
 
-const { all, markAsComplete, add, overdue, dueToday, dueLater } = todoList();
+const { n, markAsComplete, add, overdue, dueToday, dueLater } = todoList();
 /* eslint-disable no-undef */
 describe("Todo List Test Suite", () => {
   beforeAll(() => {
@@ -31,7 +31,7 @@ describe("Todo List Test Suite", () => {
     ].forEach(add);
   });
   test("Should add a new todo", () => {
-    expect(all.length).toEqual(3);
+    expect(n.length).toEqual(3);
 
     add({
       title: "A test item",
@@ -39,13 +39,13 @@ describe("Todo List Test Suite", () => {
       dueDate: new Date().toLocaleDateString("en-CA"),
     });
 
-    expect(all.length).toEqual(4);
+    expect(n.length).toEqual(4);
   });
 
   test("Should mark a todo as complete", () => {
-    expect(all[0].completed).toEqual(false);
+    expect(n[0].completed).toEqual(false);
     markAsComplete(0);
-    expect(all[0].completed).toEqual(true);
+    expect(n[0].completed).toEqual(true);
   });
 
   test("Should retrieve overdue items", () => {
